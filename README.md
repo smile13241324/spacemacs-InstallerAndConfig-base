@@ -1,9 +1,9 @@
-# spacemacs-InstallerAndConfig-base
+# spacemacs-InstallerAndConfig-Haskell
 
-This is the base image for a complete spacemacs installation with preconfigured layers.
-It is using a manjaro base installation and provides an ssh server for secure screen
-transfer to a local X server.
+This is a integrated spacemacs development environment containing a full fledged
+Haskell environment, with a preinstalled `Hie` executable for lsp integration.
 
-This base only contains the OS dependencies and omits the entire auxiliary files
-which are installed in the user's home. It is not intended to be used on it's own
-but be used as a base for other images.
+This has been separated from the [main image](https://github.com/smile13241324/spacemacs-InstallerAndConfig) due
+to increasing build times for the Haskell dependencies.
+
+If you are not interested in Haskell development it would be best to use the base image.

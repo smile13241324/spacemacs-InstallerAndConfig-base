@@ -23,9 +23,6 @@ installBaseDir="${HOME}/.spacemacsInstall"
 # https://wiki.archlinux.org/index.php/Haskell
 stack setup
 stack upgrade
-stack install pandoc
-stack install ShellCheck
-stack install hadolint
 stack install hoogle
 stack install hlint
 stack install hindent
@@ -45,4 +42,3 @@ if [[ ! -d "${lspHaskelBaseDir}" ]]; then
     stack ./install.hs hie-8.6.5
     stack ./install.hs build-doc-8.6.5
 fi
-cd "${DIR}" || exit

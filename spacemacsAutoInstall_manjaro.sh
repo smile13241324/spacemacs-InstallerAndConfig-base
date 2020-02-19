@@ -19,7 +19,6 @@ installBaseDir="${HOME}/.spacemacsInstall"
 
 # Install haskell dependencies with stack, do it manually to avoid dynamic
 # linking in arch linux haskell packages
-# Avoid building too much packages as this exceed max build time
 # https://wiki.archlinux.org/index.php/Haskell
 stack install hoogle
 stack install hlint
@@ -31,6 +30,7 @@ stack install apply-refact
 stack install stylish-haskell
 
 # Install haskell lsp from source
+# Use build script for the base ghc version
 lspHaskelBaseDir="${installBaseDir}/hie"
 if [[ ! -d "${lspHaskelBaseDir}" ]]; then
     mkdir "${lspHaskelBaseDir}"

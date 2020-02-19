@@ -21,8 +21,6 @@ installBaseDir="${HOME}/.spacemacsInstall"
 # linking in arch linux haskell packages
 # Avoid building too much packages as this exceed max build time
 # https://wiki.archlinux.org/index.php/Haskell
-stack setup
-stack upgrade
 stack install hoogle
 stack install hlint
 stack install hindent

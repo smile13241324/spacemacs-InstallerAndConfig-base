@@ -27,13 +27,13 @@ stack install hasktags
 stack install happy
 stack install alex
 stack install apply-refact
-stack install stylish-haskell
+stack install stylish-haskell-0.9.4.4
 
 # Install haskell lsp from source
 # Use build script for the base ghc version
 lspHaskelBaseDir="${installBaseDir}/hie"
 if [[ ! -d "${lspHaskelBaseDir}" ]]; then
-    mkdir "${lspHaskelBaseDir}"
+    mkdir "${lspHaskelBaseDir}" -p
     cd "${lspHaskelBaseDir}"
     git clone https://github.com/haskell/haskell-ide-engine --recurse-submodules
     cd haskell-ide-engine

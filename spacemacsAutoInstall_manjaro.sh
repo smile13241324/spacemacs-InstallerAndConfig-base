@@ -29,13 +29,15 @@ stack install alex
 stack install apply-refact
 stack install stylish-haskell-0.9.4.4
 
+# Haskell lsp must be build locally otherwise it will run
+# over 4 hours in docker hub and exceed the max build time.
 # Install haskell lsp from source
 # Use build script for the base ghc version
-lspHaskelBaseDir="${installBaseDir}/hie"
-if [[ ! -d "${lspHaskelBaseDir}" ]]; then
-    mkdir "${lspHaskelBaseDir}" -p
-    cd "${lspHaskelBaseDir}"
-    git clone https://github.com/haskell/haskell-ide-engine --recurse-submodules
-    cd haskell-ide-engine
-    stack ./install.hs hie-8.6.5
-fi
+#lspHaskelBaseDir="${installBaseDir}/hie"
+#if [[ ! -d "${lspHaskelBaseDir}" ]]; then
+#    mkdir "${lspHaskelBaseDir}" -p
+#    cd "${lspHaskelBaseDir}"
+#    git clone https://github.com/haskell/haskell-ide-engine --recurse-submodules
+#    cd haskell-ide-engine
+#    stack ./install.hs hie-8.6.5
+#fi

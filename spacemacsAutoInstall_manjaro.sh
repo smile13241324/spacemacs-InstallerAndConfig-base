@@ -11,7 +11,7 @@ if [[ $1 ]]; then
            adobe-source-code-pro-fonts clang clang-tools-extra boost boost-libs llvm       \
            llvm-libs python-pytest python-pip python-mock python-setuptools cscope npm     \
            nodejs nodejs-less npm-check-updates luarocks docker docker-compose             \
-           docker-machine ctags fish fisherman gradle maven visualvm openjdk-doc          \
+           docker-machine make ctags fish gradle maven visualvm openjdk-doc          \
            jdk-openjdk gnuplot go go-tools texlive-bin texlive-core texlive-fontsextra    \
            texlive-formatsextra texlive-games texlive-genericextra texlive-htmlxml         \
            texlive-humanities texlive-langchinese texlive-langcyrillic texlive-langextra   \
@@ -22,7 +22,7 @@ if [[ $1 ]]; then
            ocaml-findlib ocamlbuild racket rust-racer rustfmt rust cargo r gcc-fortran-multilib     \
            ansible ansible-lint puppet vagrant swi-prolog \
            elixir clojure nim nimble smlnj sbcl pass gradle \
-           gradle-doc groovy groovy-docs geckodriver terraform zeal graphviz cowsay \
+           gradle-doc groovy groovy-docs geckodriver terraform graphviz cowsay \
            gsl lld mlocate firefox openssh sed xorg-xauth pam rlwrap --noconfirm
 
     # Install lua dependencies
@@ -53,7 +53,7 @@ else
     # Install python packages
     pip install --force-reinstall pyang jedi json-rpc service_factory ipython autoflake hy \
         flake8 fabric python-binary-memcached Pygments sphinx \
-        pycscope bashate yapf isort python-language-server[all] pyls-isort \
+        pycscope bashate yapf isort 'python-language-server[all]' pyls-isort \
         pyls-mypy pyls-black mypy importmagic epc autopep8 pycodestyle pydocstyle rope ptvsd pylint black \
         yamllint pyflakes mccabe autopep8 --user
 

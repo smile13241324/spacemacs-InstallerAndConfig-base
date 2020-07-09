@@ -219,7 +219,8 @@ fmt.Printf(\"hello, world\\n\")
         elm-oracle elm-format tslint typescript-formatter webpack pulp eslint bower   \
         grunt typescript yarn js-yaml prettier typescript-language-server js-beautify \
         import-js parcel bash-language-server yaml-language-server dockerfile-language-server-nodejs \
-        flow-bin vscode-json-languageserver vscode-css-languageserver-bin vscode-html-languageserver-bin
+        flow-bin vscode-json-languageserver vscode-css-languageserver-bin vscode-html-languageserver-bin \
+        vim-language-server
 
     # Install leiningen and boot for clojure builds
     wget -O "${localInstallDir}/bin/lein" https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
@@ -237,4 +238,18 @@ fmt.Printf(\"hello, world\\n\")
     # Install sqlfmt
     wget -q -O - https://github.com/mjibson/sqlfmt/releases/latest/download/sqlfmt_0.4.0_linux_amd64.tar.gz | tar -xpvzf - --directory "${localInstallDir}/bin"
     chmod +x "${localInstallDir}/bin/sqlfmt"
+
+    # Build groovy server
+    groovyBaseDir="${installBaseDir}/groovy-lsp"
+    groovyInstallDir="${HOME}/.groovy-lsp"
+    if [[ ! -d "${groovyBaseDir}" ]]; then
+        mkdir -p "${groovyInstallDir}"
+        cd "${installBaseDir}" || exit
+        git clone https://github.com/prominic/groovy-language-server.git groovy-lsp
+        cd "groovy-lsp" || exit
+        ./gradlew build
+        cp ./build/libs/groovy-lsp-all.jar "${groovyInstallDir}/groovy-lsp-all.jar"
+        chmod +x "${groovyInstallDir}/groovy-lsp-all.jar"
+    fi
+    cd "${DIR}" || exit
 fi

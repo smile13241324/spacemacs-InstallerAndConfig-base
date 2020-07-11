@@ -23,7 +23,7 @@ if [[ $1 ]]; then
            ansible ansible-lint puppet vagrant swi-prolog \
            elixir clojure nim nimble smlnj sbcl pass gradle \
            gradle-doc groovy groovy-docs geckodriver terraform graphviz cowsay \
-           gsl lld mlocate firefox openssh sed xorg-xauth pam rlwrap --noconfirm
+           gsl lld mlocate firefox openssh sed xorg-xauth pam rlwrap kotlin --noconfirm
 
     # Install lua dependencies
     luarocks install luacheck
@@ -250,6 +250,20 @@ fmt.Printf(\"hello, world\\n\")
         ./gradlew build
         cp ./build/libs/groovy-lsp-all.jar "${groovyInstallDir}/groovy-lsp-all.jar"
         chmod +x "${groovyInstallDir}/groovy-lsp-all.jar"
+    fi
+    cd "${DIR}" || exit
+
+    # Build kotlin server
+    kotlinBaseDir="${installBaseDir}/kotlin-lsp"
+    kotlinInstallDir="${HOME}/.kotlin-lsp"
+    if [[ ! -d "${kotlinBaseDir}" ]]; then
+        mkdir -p "${kotlinInstallDir}"
+        cd "${installBaseDir}" || exit
+        git clone https://github.com/fwcd/kotlin-language-server.git kotlin-lsp
+        cd "kotlin-lsp" || exit
+        ./gradlew :server:installDist
+        cp ./server/build/install "${kotlinInstallDir}" -r
+        chmod +x "${localInstallDir}/bin/kotlin-language-server"
     fi
     cd "${DIR}" || exit
 fi

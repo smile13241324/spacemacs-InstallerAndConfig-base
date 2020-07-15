@@ -216,11 +216,11 @@ fmt.Printf(\"hello, world\\n\")
     # Install nodejs dependencies
     npm config set prefix "${localInstallDir}"
     npm install -g tern babel-eslint eslint-plugin-react vmd elm \
-        elm-oracle elm-format tslint typescript-formatter webpack pulp eslint bower   \
+        elm-oracle elm-format elm-test tslint typescript-formatter webpack pulp eslint bower   \
         grunt typescript yarn js-yaml prettier typescript-language-server js-beautify \
         import-js parcel bash-language-server yaml-language-server dockerfile-language-server-nodejs \
         flow-bin vscode-json-languageserver vscode-css-languageserver-bin vscode-html-languageserver-bin \
-        vim-language-server
+        vim-language-server @elm-tooling/elm-language-server
 
     # Install leiningen and boot for clojure builds
     wget -O "${localInstallDir}/bin/lein" https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein

@@ -220,7 +220,7 @@ fmt.Printf(\"hello, world\\n\")
         grunt typescript yarn js-yaml prettier typescript-language-server js-beautify \
         import-js parcel bash-language-server yaml-language-server dockerfile-language-server-nodejs \
         flow-bin vscode-json-languageserver vscode-css-languageserver-bin vscode-html-languageserver-bin \
-        vim-language-server @elm-tooling/elm-language-server
+        vim-language-server @elm-tooling/elm-language-server elm-analyse
 
     # Install leiningen and boot for clojure builds
     wget -O "${localInstallDir}/bin/lein" https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein

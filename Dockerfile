@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:1.0-experimental
-FROM jonathonf/manjaro
+FROM manjarolinux/base
 LABEL Description="This image creates a base for a dockerized version of spacemacs with all external tools required. An ssh server is also installed for X forwarding accepting only public key authentification. To use it add your public key to ~/.ssh/authorized_keys" Vendor="smile13241324@gmail.com" Version="1.5"
 COPY . /installRepo-base
 WORKDIR /installRepo-base

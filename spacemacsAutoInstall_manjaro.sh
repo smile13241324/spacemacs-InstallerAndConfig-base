@@ -21,7 +21,7 @@ if [[ $1 ]]; then
            ruby opam llvm-ocaml ocaml-compiler-libs ocaml-ctypes        \
            ocaml-findlib ocamlbuild racket rust-racer rustfmt rust cargo r gcc-fortran-multilib     \
            ansible ansible-lint puppet vagrant swi-prolog \
-           elixir clojure nim nimble smlnj sbcl pass gradle \
+           elixir clojure smlnj sbcl pass gradle \
            gradle-doc groovy groovy-docs geckodriver terraform graphviz cowsay \
            gsl lld mlocate firefox openssh sed xorg-xauth pam rlwrap kotlin --noconfirm
 

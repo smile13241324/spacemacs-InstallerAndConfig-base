@@ -51,11 +51,13 @@ This function should only modify configuration layer settings."
      ;;                 enable-flyspell-auto-completion t)
      (scala :variables
             scala-backend 'scala-metals)
-     nim
+     (nim :variables
+          nim-backend 'company-nim)
      spacemacs-purpose
      elasticsearch
      (yang :variables yang-pyang-rules "ietf")
      ietf
+     ;; ocaml
      ;; gtags
      scheme
      (auto-completion :variables
@@ -107,7 +109,8 @@ This function should only modify configuration layer settings."
      version-control
      import-js
      (cmake :variables
-            cmake-enable-cmake-ide-support t)
+            cmake-enable-cmake-ide-support t
+            cmake-backend 'company-cmake)
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-backend 'lsp-clangd
@@ -228,11 +231,12 @@ This function should only modify configuration layer settings."
                treemacs-use-follow-mode t
                treemacs-use-filewatch-mode t
                treemacs-collapse-dirs 3
+               treemacs-use-icons-dired t
+               treemacs-use-all-the-icons-theme nil
                treemacs-use-git-mode 'deferred)
      ansible
      puppet
      rust
-     hy
      xkcd
      typography
      (vimscript :variables
@@ -419,7 +423,7 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(modus-vivendi spacemacs-dark modus-operandi spacemacs-light)
+   dotspacemacs-themes '(modus-vivendi spacemacs-dark modus-operandi spacemacs-light dracula)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -667,6 +671,13 @@ It should only modify the values of Spacemacs settings."
    ;; (default t)
    dotspacemacs-use-clean-aindent-mode nil
 
+   ;; If non-nil shift your number row to match the entered keyboard layout
+   ;; (only in insert mode). Currently the keyboard layouts
+   ;; (qwerty-us qwertz-de) are supported.
+   ;; New layouts can be added in `spacemacs-editing' layer.
+   ;; (default nil)
+   dotspacemacs-swap-number-row 'qwertz-de
+
    ;; Either nil or a number of seconds. If non-nil zone out after the specified
    ;; number of seconds. (default nil)
    dotspacemacs-zone-out-when-idle nil
@@ -681,7 +692,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-home-shorten-agenda-source t))
 
 (defun dotspacemacs/user-env ()
-  "Environment variables setup.
+  "Environment variables setup.))
 This function defines the environment variables for your Emacs session. By
 default it calls `spacemacs/load-spacemacs-env' which loads the environment
 variables declared in `~/.spacemacs.env' or `~/.spacemacs.d/.spacemacs.env'.
@@ -808,6 +819,9 @@ before packages are loaded."
         (goto-char (point-max))
         (insert "\n" "Thank you for contributing to Spacemacs! :+1:" "\n" "The PR has been cherry-picked into develop, you can safely delete your branch."))))
   (spacemacs/set-leader-keys "o c" #'smile13241324/cherry-pick-pr)
+
+
+  ;; PATH=/home/smile13241324/.local/bin:/home/smile13241324/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/smile13241324/goWorkspace/bin:/home/smile13241324/goWorkspace/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/smlnj/bin
 
   ;; Activate line wrap for all text modes
   (add-hook 'text-mode-hook 'spacemacs/toggle-truncate-lines-off)

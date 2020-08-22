@@ -55,7 +55,7 @@ else
         flake8 fabric python-binary-memcached Pygments sphinx \
         pycscope bashate yapf isort 'python-language-server[all]' pyls-isort \
         pyls-mypy pyls-black mypy importmagic epc autopep8 pycodestyle pydocstyle rope ptvsd pylint black \
-        yamllint pyflakes mccabe autopep8 cython --user
+        yamllint pyflakes mccabe autopep8 cython cmake-language-server --user
 
     # Set current path
     SOURCE="${BASH_SOURCE[0]}"

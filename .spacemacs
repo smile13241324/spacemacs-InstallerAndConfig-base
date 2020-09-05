@@ -30,7 +30,7 @@ This function should only modify configuration layer settings."
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
 
-   ;; List of configuration layers to load.
+   ;; Configuration layers
    dotspacemacs-configuration-layers
    '(
      ;; ----------------------------------------------------------------
@@ -39,8 +39,7 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      (lsp :variables
-          lsp-navigation 'peek
-          lsp-ui-doc-enable nil)
+          lsp-navigation 'peek)
      dap
      ;; (dart :variables
      ;;       dart-backend 'lsp
@@ -676,7 +675,7 @@ It should only modify the values of Spacemacs settings."
    ;; (qwerty-us qwertz-de) are supported.
    ;; New layouts can be added in `spacemacs-editing' layer.
    ;; (default nil)
-   dotspacemacs-swap-number-row 'qwertz-de
+   dotspacemacs-swap-number-row nil
 
    ;; Either nil or a number of seconds. If non-nil zone out after the specified
    ;; number of seconds. (default nil)
@@ -819,9 +818,6 @@ before packages are loaded."
         (goto-char (point-max))
         (insert "\n" "Thank you for contributing to Spacemacs! :+1:" "\n" "The PR has been cherry-picked into develop, you can safely delete your branch."))))
   (spacemacs/set-leader-keys "o c" #'smile13241324/cherry-pick-pr)
-
-
-  ;; PATH=/home/smile13241324/.local/bin:/home/smile13241324/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/smile13241324/goWorkspace/bin:/home/smile13241324/goWorkspace/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/smlnj/bin
 
   ;; Activate line wrap for all text modes
   (add-hook 'text-mode-hook 'spacemacs/toggle-truncate-lines-off)

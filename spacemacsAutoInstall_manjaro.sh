@@ -23,7 +23,7 @@ if [[ $1 ]]; then
            ansible ansible-lint puppet vagrant swi-prolog \
            elixir clojure smlnj sbcl pass gradle \
            gradle-doc groovy groovy-docs geckodriver terraform graphviz cowsay \
-           gsl lld mlocate firefox openssh sed xorg-xauth pam rlwrap kotlin --noconfirm
+           gsl lld mlocate firefox openssh sed xorg-xauth pam rlwrap kotlin texlab --noconfirm
 
     # Install lua dependencies
     luarocks install luacheck

@@ -222,13 +222,15 @@ fmt.Printf(\"hello, world\\n\")
         flow-bin vscode-json-languageserver vscode-css-languageserver-bin vscode-html-languageserver-bin \
         vim-language-server @elm-tooling/elm-language-server elm-analyse
 
-    # Install leiningen and boot for clojure builds
+    # Install leiningen and boot for clojure builds as well as lsp
     wget -O "${localInstallDir}/bin/lein" https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
     chmod +x "${localInstallDir}/bin/lein"
     "${localInstallDir}/bin/lein" version
     wget -O "${localInstallDir}/bin/boot" https://github.com/boot-clj/boot-bin/releases/download/latest/boot.sh
     chmod +x "${localInstallDir}/bin/boot"
     "${localInstallDir}/bin/boot" -u
+    wget -O "${localInstallDir}/bin/clojure-lsp" https://github.com/snoe/clojure-lsp/releases/latest/download/clojure-lsp
+    chmod +x "${localInstallDir}/bin/clojure-lsp"
 
     # Install additional linters for clojure
     go get -d github.com/candid82/joker
@@ -250,20 +252,6 @@ fmt.Printf(\"hello, world\\n\")
         ./gradlew build
         cp ./build/libs/groovy-lsp-all.jar "${groovyInstallDir}/groovy-lsp-all.jar"
         chmod +x "${groovyInstallDir}/groovy-lsp-all.jar"
-    fi
-    cd "${DIR}" || exit
-
-    # Build kotlin server
-    kotlinBaseDir="${installBaseDir}/kotlin-lsp"
-    kotlinInstallDir="${HOME}/.kotlin-lsp"
-    if [[ ! -d "${kotlinBaseDir}" ]]; then
-        mkdir -p "${kotlinInstallDir}"
-        cd "${installBaseDir}" || exit
-        git clone https://github.com/fwcd/kotlin-language-server.git kotlin-lsp
-        cd "kotlin-lsp" || exit
-        ./gradlew :server:installDist
-        cp ./server/build/install "${kotlinInstallDir}" -r
-        chmod +x "${localInstallDir}/bin/kotlin-language-server"
     fi
     cd "${DIR}" || exit
 fi

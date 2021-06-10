@@ -10,7 +10,7 @@ if [[ $1 ]]; then
            extra-cmake-modules python autoconf automake gdb gdb-common lldb      \
            adobe-source-code-pro-fonts clang clang-tools-extra boost boost-libs llvm       \
            llvm-libs python-pytest python-pip python-mock python-setuptools cscope npm     \
-           nodejs nodejs-less npm-check-updates luarocks docker docker-compose             \
+           nodejs npm-check-updates luarocks docker docker-compose             \
            docker-machine make ctags fish gradle maven visualvm openjdk-doc          \
            jdk-openjdk gnuplot go go-tools texlive-bin texlive-core texlive-fontsextra    \
            texlive-formatsextra texlive-games texlive-genericextra texlive-htmlxml         \
@@ -220,7 +220,7 @@ fmt.Printf(\"hello, world\\n\")
         grunt typescript yarn js-yaml prettier typescript-language-server js-beautify \
         import-js parcel bash-language-server yaml-language-server dockerfile-language-server-nodejs \
         flow-bin vscode-json-languageserver vscode-css-languageserver-bin vscode-html-languageserver-bin \
-        vim-language-server @elm-tooling/elm-language-server elm-analyse
+        vim-language-server @elm-tooling/elm-language-server elm-analyse less
 
     # Install leiningen and boot for clojure builds as well as lsp
     wget -O "${localInstallDir}/bin/lein" https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
